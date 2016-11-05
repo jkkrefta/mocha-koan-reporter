@@ -1,6 +1,7 @@
 $SourcePath = './reporter'
 $TestPath = './reporter-test'
-$Line = '=============================='
+$PrintLine = '=============================='
+$PrintEmptyLine = ''
 
 function RunPSProcess ($Command, $Path)
   {
@@ -17,43 +18,50 @@ function TryRemove ($Path)
       remove-item $Path -Force -Recurse
       "Deleted $Path"
     }
+    $PrintEmptyLine
   }
 
 function Cleanup
   {
     "Performing cleanup"
-    $Line
+    $PrintLine
+    $PrintEmptyLine
+    TryRemove -Path ./reporter/lib
     TryRemove -Path ./reporter/mocha-koan-reporter*.tgz
     TryRemove -Path ./reporter-test/node_modules/mocha-koan-reporter
-    $Line
+    $PrintLine
   }
 
 function BuildReporter
   {
     "Building reporter"
-    $Line
+    $PrintLine
     RunPSProcess -Command 'npm run build' -Path $SourcePath
     RunPSProcess -Command 'npm pack' -Path $SourcePath
-    $Line
+    $PrintEmptyLine
+    $PrintLine
   }
 
 function BuildTest
   {
     "Building test environment"
-    $Line
+    $PrintLine
+    $PrintEmptyLine
     RunPSProcess -Command 'npm install' -Path $TestPath
-    $Line
+    $PrintEmptyLine
+    $PrintLine
   }
 
 function RunTest
   {
     "Running test"
-    $Line
+    $PrintLine
     RunPSProcess -Command 'npm run test' -Path $TestPath
-    $Line
+    $PrintEmptyLine
+    $PrintLine
   }
 
-$Line
+$PrintLine
 Cleanup
 BuildReporter
 BuildTest
