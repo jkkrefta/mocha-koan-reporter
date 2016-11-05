@@ -2,8 +2,8 @@ import { reporters } from 'mocha';
 
 function KoanReporter(runner) {
   reporters.Base.call(this, runner);
-  var passes = 0;
-  var failures = 0;
+  let passes = 0;
+  let failures = 0;
 
   runner.on('pass', function(test){
     passes++;
