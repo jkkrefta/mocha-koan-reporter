@@ -1,26 +1,7 @@
-import { reporters } from 'mocha';
-import format from 'string-format';
-const Base = reporters.Base;
-const colorOutput = Base.color;
-const symbols = Base.symbols;
-
-function write (messageColor, message) {
-  const coloredMessage = colorOutput(messageColor, message);
-  process.stdout.write(coloredMessage);
-}
-
-function nextLine () {
-  process.stdout.write('\n');
-}
-
-function writeLine (messageColor, message) {
-  write(messageColor, format('{}\n', message));
-}
+import { showGoldBudda, thinkingOn, youAreAwareOf, youHaveReachedEnlightment, meditateOn } from './sensei';
 
 class KoanReporter {
   constructor(runner) {
-    this.testSuites = 0;
-    this.passingTests = 0;
     this.registerRunnerEvents(runner);
   }
 
@@ -33,69 +14,27 @@ class KoanReporter {
   }
 
   onStart () {
-    writeLine('bright yellow', '                           _ooOoo_');
-    writeLine('bright yellow', '                          o8888888o');
-    writeLine('bright yellow', '                          88" . "88');
-    writeLine('bright yellow', '                          (| -_- |)');
-    writeLine('bright yellow', '                          O\\  =  /O');
-    writeLine('bright yellow', '                       ____/\`---\'\\____');
-    writeLine('bright yellow', '                     .\'  \\\\|     |//  \`.');
-    writeLine('bright yellow', '                    /  \\\\|||  :  |||//  \\');
-    writeLine('bright yellow', '                   /  _||||| -:- |||||_  \\');
-    writeLine('bright yellow', '                   |   | \\\\\\  -  /\'| |   |');
-    writeLine('bright yellow', '                   | \\_|  \`\\\`---\'//  |_/ |');
-    writeLine('bright yellow', '                   \\  .-\\__ \`-. -\'__/-.  /');
-    writeLine('bright yellow', '                 ___\`. .\'  /--.--\\  \`. .\'___');
-    writeLine('bright yellow', '              .\"\" \'<  \`.___\\_<|>_/___.\' _> \\\"\".');
-    writeLine('bright yellow', '             | | :  \`- \\\`. ;\`. _/; .\'/ /  .\' ; |');
-    writeLine('bright yellow', '             \\  \\ \`-.   \\_\\_\`. _.\'_/_/  -\' _.\' /');
-    writeLine('bright yellow', '==============\`-.\`___\`-.__\\ \\___  /__.-\'_.\'_.-\'===================');
+    process.stdout.write(showGoldBudda);
   }
 
   onTestSuite (suite) {
     if (suite.root) {
       return;
     }
-    this.testSuites++;
-    writeLine('suite', format('Thinking {}', suite.title));
+    process.stdout.write(thinkingOn(suite.title));
   }
 
   onTestPass (test) {
-    this.passingTests++;
-    writeLine('bright pass', format(' {} {} has expanded your awarness', symbols.ok, test.title));
+    process.stdout.write(youAreAwareOf(test.title));
   }
 
   onTestFail (test, err) {
-    nextLine();
-    writeLine('suite', 'You have not yet reached enlightenment ..');
-    writeLine('bright fail', format(' {} {} has damaged your karma', symbols.err, test.title));
-    nextLine();
-    write('suite', 'Please meditate on the following code: ');
-    write('bright fail', test.title);
-    nextLine();
-    nextLine();
-    write('bright yellow', format(' {}', err.message));
-
-    if (err.showDiff) {
-      nextLine();
-      nextLine();
-      write('suite', ' Given: ');
-      write('bright fail', err.actual);
-      nextLine();
-      write('suite', ' Expected: ');
-      write('bright pass', err.expected);
-    }
-
-    nextLine();
+    process.stdout.write(meditateOn(test.title, err));
     process.exit();
   }
 
   onEnd () {
-    nextLine();
-    writeLine('suite', format('That was the last one, well done{}', symbols.bang));
-    writeLine('bright pass', 'You have reached enlightenment');
-    writeLine('suite', format(' You have done {} koans', this.testSuites));
-    writeLine('suite', format(' You performed {} tasks', this.passingTests));
+    process.stdout.write(youHaveReachedEnlightment());
     process.exit();
   }
 }
