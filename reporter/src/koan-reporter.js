@@ -25,10 +25,31 @@ class KoanReporter {
   }
 
   registerRunnerEvents (runner) {
+    runner.on('start', this.onStart);
     runner.on('suite', this.onTestSuite);
     runner.on('pass', this.onTestPass);
     runner.on('fail', this.onTestFail);
     runner.on('end', this.onEnd);
+  }
+
+  onStart () {
+    writeLine('bright yellow', '                           _ooOoo_');
+    writeLine('bright yellow', '                          o8888888o');
+    writeLine('bright yellow', '                          88" . "88');
+    writeLine('bright yellow', '                          (| -_- |)');
+    writeLine('bright yellow', '                          O\\  =  /O');
+    writeLine('bright yellow', '                       ____/\`---\'\\____');
+    writeLine('bright yellow', '                     .\'  \\\\|     |//  \`.');
+    writeLine('bright yellow', '                    /  \\\\|||  :  |||//  \\');
+    writeLine('bright yellow', '                   /  _||||| -:- |||||_  \\');
+    writeLine('bright yellow', '                   |   | \\\\\\  -  /\'| |   |');
+    writeLine('bright yellow', '                   | \\_|  \`\\\`---\'//  |_/ |');
+    writeLine('bright yellow', '                   \\  .-\\__ \`-. -\'__/-.  /');
+    writeLine('bright yellow', '                 ___\`. .\'  /--.--\\  \`. .\'___');
+    writeLine('bright yellow', '              .\"\" \'<  \`.___\\_<|>_/___.\' _> \\\"\".');
+    writeLine('bright yellow', '             | | :  \`- \\\`. ;\`. _/; .\'/ /  .\' ; |');
+    writeLine('bright yellow', '             \\  \\ \`-.   \\_\\_\`. _.\'_/_/  -\' _.\' /');
+    writeLine('bright yellow', '=============\`-.\`___\`-.__\\ \\___  /__.-\'_.\'_.-\'==================');
   }
 
   onTestSuite (suite) {
@@ -62,7 +83,7 @@ class KoanReporter {
       write('suite', ' Expected: ');
       write('bright pass', err.expected);
     }
-    
+
     nextLine();
     process.exit();
   }
