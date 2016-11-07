@@ -49,7 +49,7 @@ class KoanReporter {
     writeLine('bright yellow', '              .\"\" \'<  \`.___\\_<|>_/___.\' _> \\\"\".');
     writeLine('bright yellow', '             | | :  \`- \\\`. ;\`. _/; .\'/ /  .\' ; |');
     writeLine('bright yellow', '             \\  \\ \`-.   \\_\\_\`. _.\'_/_/  -\' _.\' /');
-    writeLine('bright yellow', '=============\`-.\`___\`-.__\\ \\___  /__.-\'_.\'_.-\'==================');
+    writeLine('bright yellow', '==============\`-.\`___\`-.__\\ \\___  /__.-\'_.\'_.-\'===================');
   }
 
   onTestSuite (suite) {
@@ -66,9 +66,11 @@ class KoanReporter {
   }
 
   onTestFail (test, err) {
+    nextLine();
+    writeLine('suite', 'You have not yet reached enlightenment ..');
     writeLine('bright fail', format(' {} {} has damaged your karma', symbols.err, test.title));
     nextLine();
-    write('suite', 'You need to meditate on ');
+    write('suite', 'Please meditate on the following code: ');
     write('bright fail', test.title);
     nextLine();
     nextLine();
@@ -90,9 +92,10 @@ class KoanReporter {
 
   onEnd () {
     nextLine();
-    writeLine('suite', 'Summing up your awarnes');
-    writeLine('bright pass', format(' You have done {} koans', this.testSuites));
-    writeLine('bright pass', format(' You performed {} tasks', this.passingTests));
+    writeLine('suite', format('That was the last one, well done{}', symbols.bang));
+    writeLine('bright pass', 'You have reached enlightenment');
+    writeLine('suite', format(' You have done {} koans', this.testSuites));
+    writeLine('suite', format(' You performed {} tasks', this.passingTests));
     process.exit();
   }
 }

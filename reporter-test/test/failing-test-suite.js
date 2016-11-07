@@ -9,4 +9,8 @@ describe('about koan reporter', () => {
   it('simple failing test', () => {
     expect(true).to.equal(false);
   });
+
+  it('test that you should not see', () => {
+    expect(true).to.equal(false);
+  });
 });

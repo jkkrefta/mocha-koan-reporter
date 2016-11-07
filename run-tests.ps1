@@ -56,7 +56,8 @@ function RunTest
   {
     "Running test"
     $PrintLine
-    RunPSProcess -Command 'npm run test' -Path $TestPath
+    RunPSProcess -Command 'npm run test:pass' -Path $TestPath
+    RunPSProcess -Command 'npm run test:fail' -Path $TestPath
     $PrintEmptyLine
     $PrintLine
   }

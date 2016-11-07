@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "test:fail": "mocha --compilers js:babel-register --reporter mocha-koan-reporter ./test/failing-test-suite.js",
+    "test:pass": "mocha --compilers js:babel-register --reporter mocha-koan-reporter ./test/passing-test-suite.js",
     "test": "mocha --compilers js:babel-register --reporter mocha-koan-reporter",
     "debug": "mocha --compilers js:babel-register --reporter mocha-koan-reporter debug"
   },
