@@ -1,11 +1,23 @@
-import { budda } from './assets';
+import { budda, zen } from './assets';
 import { Yellow, Gray, Green, Red } from './color-utils';
 import format from 'string-format';
 import { reporters } from 'mocha';
 
 const symbols = reporters.Base.symbols;
 
-export const showGoldBudda = Yellow(format('{}\n', budda));
+function getRandomIntInclusive (min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function zenWisdom () {
+  return zen[getRandomIntInclusive(0, zen.length)];
+}
+
+export function showGoldBudda () {
+  return format('{}\n{}\n\n', Yellow(budda), Yellow(zenWisdom()));
+}
 
 export function thinkingOn (subject) {
   return Gray(format('Thinking {}\n', subject));

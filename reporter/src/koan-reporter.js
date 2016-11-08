@@ -14,7 +14,7 @@ class KoanReporter {
   }
 
   onStart () {
-    process.stdout.write(showGoldBudda);
+    process.stdout.write(showGoldBudda());
   }
 
   onTestSuite (suite) {
