@@ -3,7 +3,7 @@ export const budda = '\
                           o8888888o\n\
                           88" . "88\n\
                           (| -_- |)\n\
-                          O\\  =  /O\n\
+                          O\\  =  /O   {}\n\
                        ____/\`---\'\\____\n\
                      .\'  \\\\|     |//  \`.\n\
                     /  \\\\|||  :  |||//  \\\n\
@@ -18,7 +18,7 @@ export const budda = '\
 ==============\`-.\`___\`-.__\\ \\___  /__.-\'_.\'_.-\'===================\n\
                            \`=--=-\'\n';
 
-export const zen = [
+export const wisdom = [
   'Beautiful is better than ugly.',
   'Explicit is better than implicit.',
   'Simple is better than complex.',
@@ -37,6 +37,6 @@ export const zen = [
   'Although never is often better than right now.',
   'If the implementation is hard to explain, it\'s a bad idea.',
   'If the implementation is easy to explain, it may be a good idea.',
-  'Namespaces are one honking great idea -- let\'s do more of those!',
+  'Namespaces are one honking great idea - let\'s do more of those!',
   'Nobody ever expects the Spanish Inquisition.'
 ];
