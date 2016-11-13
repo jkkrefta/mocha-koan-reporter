@@ -2,3 +2,4 @@ roll
 src
 .babelrc
 .npmignore
+mocha-koan-reporter-*.tgz
