@@ -16,7 +16,8 @@ function zenWisdom () {
 }
 
 export function showGoldBudda () {
-  return Yellow(format(budda, zenWisdom()));
+  const wiseWords = zenWisdom();
+  return Yellow(format(budda, wiseWords[0], wiseWords[1]));
 }
 
 export function thinkingOn (subject) {
