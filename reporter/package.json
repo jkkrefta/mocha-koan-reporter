@@ -1,6 +1,6 @@
 {
   "name": "mocha-koan-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./koan-reporter.js",
   "repository": {
     "url": "https://github.com/jkkrefta/mocha-koan-reporter",
