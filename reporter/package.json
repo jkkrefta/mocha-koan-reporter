@@ -1,7 +1,7 @@
 {
   "name": "mocha-koan-reporter",
   "version": "0.0.1",
-  "main": "./es5-loader.js",
+  "main": "./lib/koan-reporter.js",
   "repository": {
     "url": "https://github.com/jkkrefta/mocha-koan-reporter",
     "type": "git"
@@ -9,8 +9,9 @@
   "author": "Jarosław Krefta <j.k.krefta@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel ./src -d ./lib",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "roll": "rollup --format=cjs --output=./roll/koan-reporter.js ./src/koan-reporter.js",
+    "build": "babel ./roll -d ./lib"
   },
   "dependencies": {
     "babel-cli": "^6.18.0",
