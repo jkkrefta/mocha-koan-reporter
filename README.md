@@ -6,11 +6,11 @@ This is third party reporter for JavaScript test runner MochaJS.
 I have written it to with porpouse to use with ES6 koans.
 
 ## Screenshots
-![conemu failing suite](https://github.com/jkkrefta/mocha-koan-reporter/Readme/conemu-failing-suite.png "Logo Title Text 1")
+![conemu failing suite](https://github.com/jkkrefta/mocha-koan-reporter/tree/master/Readme/conemu-failing-suite.png "Conemu failing suite")
 
-![cmd passing suite](https://github.com/jkkrefta/mocha-koan-reporter/Readme/cmd-passing-suite.png "Logo Title Text 1")
+![cmd passing suite](https://github.com/jkkrefta/mocha-koan-reporter/tree/master/Readme/cmd-passing-suite.png "CommandLine passing suite")
 
-![powershell failing suite](https://github.com/jkkrefta/mocha-koan-reporter/Readme/powershell-failing-suite.png "Logo Title Text 1")
+![powershell failing suite](https://github.com/jkkrefta/mocha-koan-reporter/tree/master/Readme/powershell-failing-suite.png "Powershell failing suite")
 
 ## Requirements
 mocha-koan-reporter requires mocha to run.
@@ -34,3 +34,7 @@ For example:
 ```
 mocha --reporter mocha-koan-reporter
 ```
+
+## Limitations
+This was developed and tested on windows and with windows based consoles in mind.
+You can use it under any other operating system but I cant guarantee you that it will output properly colored and formated report.
