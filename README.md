@@ -17,7 +17,7 @@ mocha-koan-reporter requires mocha to run.
 
 To install mocha run one of commands below in your console.
 | Installation Scope | Command |
-| ------------------ | ------- |
+| ---: | :--- |
 | Local - in project | ```npm install mocha``` |
 | Global             | ```npm install mocha -g``` |
 
