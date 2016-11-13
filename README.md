@@ -16,17 +16,17 @@ I have written it to with porpouse to use with ES6 koans.
 mocha-koan-reporter requires mocha to run.
 
 To install mocha run one of commands below in your console.
- Installation Scope | Command                     
- ------------------ | -------
+Installation Scope | Command
+------------------ | -------
 Local - in project | ```npm install mocha```
-Global | ```npm install mocha -g```
+Global             | ```npm install mocha -g```
 
 ## Installation
 To install reporter run one of commands below in your console.
-|Installation Scope|Command|
-|------|-------|
-|Local - in project | ```npm install mocha-koan-reporter``` |
-|Global| ```npm install mocha-koan-reporter -g``` |
+Installation Scope | Command
+------------------ | -------
+Local - in project | ```npm install mocha-koan-reporter```
+Global             | ```npm install mocha-koan-reporter -g```
 
 ## Usage
 To use mocha-koan-reporter you need to select it in as a reporter when running tests
