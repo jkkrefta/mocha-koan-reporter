@@ -2,11 +2,11 @@
 
 ## About
 This is third party reporter for JavaScript test runner **MochaJS**.
-I have written it in order to have nicely formated reports for people learning stuff in JavaScript.
+I have written it in order to have nicely formated reports for people that are learning JavaScript.
 
 ## Features
 * Has nice color schema.
-* Stops on first failed test.
+* Stops on _first fail_.
 * Displays random words of wisdom from _"Programming Budda"_.
 * Has stylized and more humane output than regular reporter.
 
@@ -75,5 +75,5 @@ mocha --reporter mocha-koan-reporter
 ```
 
 ## Limitations
-This was developed and tested on windows and with windows based consoles in mind.
-You can use it under any other operating system but I can`t guarantee you that it will output properly colored and formated report.
+This was developed and **tested on Windows** and with **Windows based consoles** in mind.
+You can use it under any other operating system but I can`t guarantee that it will print properly colored and formated report.
