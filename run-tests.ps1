@@ -26,7 +26,6 @@ function Cleanup
     "Performing cleanup"
     $PrintLine
     $PrintEmptyLine
-    TryRemove -Path ./reporter/lib
     TryRemove -Path ./reporter/roll
     TryRemove -Path ./reporter/mocha-koan-reporter*.tgz
     TryRemove -Path ./reporter-test/node_modules/mocha-koan-reporter
@@ -37,6 +36,7 @@ function BuildReporter
   {
     "Building reporter"
     $PrintLine
+    RunPSProcess -Command 'npm install' -Path $SourcePath
     RunPSProcess -Command 'npm run roll' -Path $SourcePath
     RunPSProcess -Command 'npm run build' -Path $SourcePath
     RunPSProcess -Command 'npm pack' -Path $SourcePath
