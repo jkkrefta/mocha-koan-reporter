@@ -28,7 +28,7 @@ function TryRemove ($Path)
 
 function CleanupReporter ($Path)
   {
-    "Performing reporter cleanup"
+    "Performing Reporter Cleanup"
     PrintLine
     PrintEmptyLine
     TryRemove -Path "$($Path)/roll"
@@ -38,7 +38,7 @@ function CleanupReporter ($Path)
 
 function CleanupTestHarness ($Path)
   {
-    "Performing test harness cleanup"
+    "Performing Test Environment Cleanup"
     PrintLine
     PrintEmptyLine
     TryRemove -Path "$($Path)/node_modules/mocha-koan-reporter"
@@ -47,7 +47,7 @@ function CleanupTestHarness ($Path)
 
 function BuildReporter ($Path)
   {
-    "Building reporter"
+    "Building Reporter"
     PrintLine
     RunPSProcess -Command 'npm install' -Path $Path
     RunPSProcess -Command 'npm run roll' -Path $Path
@@ -59,7 +59,7 @@ function BuildReporter ($Path)
 
 function BuildTestHarness ($Path)
   {
-    "Building test environment"
+    "Building Test Environment"
     PrintLine
     PrintEmptyLine
     RunPSProcess -Command 'npm install' -Path $Path
@@ -69,7 +69,7 @@ function BuildTestHarness ($Path)
 
 function RunTests ($Path)
   {
-    "Running test"
+    "Running Tests"
     PrintLine
     RunPSProcess -Command 'npm run test:pass' -Path $Path
     RunPSProcess -Command 'npm run test:fail' -Path $Path
@@ -82,6 +82,24 @@ function RunDebug ($Path)
     "Running Node Debugger"
     PrintLine
     RunPSProcess -Command 'npm run debug' -Path $Path
+    PrintEmptyLine
+    PrintLine
+  }
+
+function SetReporterVersion ($Path, $Version)
+  {
+    "Changing Reporter Version"
+    PrintLine
+    RunPSProcess -Command "npm version $($Version)" -Path $Path
+    PrintEmptyLine
+    PrintLine
+  }
+
+function SetTestHarnessReporterVersion ($Path, $Version)
+  {
+    "Changing Test Environment Reporter Version"
+    PrintLine
+    RunPSProcess -Command "npm install ../reporter/mocha-koan-reporter-$($Version).tgz" -Path $Path
     PrintEmptyLine
     PrintLine
   }
